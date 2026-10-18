@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Team page concept: Southwind Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0A6FB5;--blue-d:#085a92;--ink:#0B0C0E;--paper:#F4F4F1;--mute:#5B6168;--line:#DDDFD9;--white:#fff}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--ink);background:var(--white);font-size:17px;line-height:1.5}
+h1,h2,h3{font-family:"Instrument Sans",Inter,"Segoe UI",Arial,sans-serif;letter-spacing:-.02em;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.eyebrow{font:600 12px/1 Inter,"Segoe UI",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6CC04A;margin-bottom:14px}
+.eyebrow.dark{color:var(--blue)}
+header.nav{position:absolute;inset:0 0 auto 0;display:flex;align-items:center;justify-content:space-between;padding:22px 40px;color:#fff;font-size:14px;z-index:2}
+header.nav .links span{margin-right:26px}header.nav .logo{font:700 13px/1.1 "Instrument Sans",Inter,Arial,sans-serif;letter-spacing:.12em;text-align:center}
+header.nav .touch{color:#6CC04A;font-weight:600}
+.hero{position:relative;min-height:520px;display:flex;align-items:flex-end;color:#fff;background:
+ linear-gradient(180deg,rgba(11,12,14,.25) 0%,rgba(11,12,14,.88) 75%),
+ repeating-linear-gradient(135deg,#2b3a44 0 18px,#334652 18px 36px);}
+.hero .wrap{padding-bottom:64px;padding-top:140px;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:end}
+.hero h1{font-size:54px;line-height:1.05;font-weight:700}
+.hero p{font-size:19px;color:#E6E6E6;max-width:56ch;margin:18px 0 0}
+.hero .photo-tag{font-size:12px;color:#C9CDD2;border:1px dashed #6b7580;padding:8px 10px;border-radius:6px;justify-self:end}
+.btn{display:inline-block;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none}
+.btn-p{background:var(--blue);color:#fff}.btn-o{border:1.5px solid #fff;color:#fff}.btn-dark{border:1.5px solid var(--ink);color:var(--ink)}
+section{padding:80px 0}
+.lead{background:var(--paper)}
+.lead .card{display:grid;grid-template-columns:380px 1fr;gap:48px;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.portrait{aspect-ratio:4/5;background:linear-gradient(160deg,#cfd8e0,#9fb3c3);position:relative;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,111,181,.0),rgba(10,111,181,.35));mix-blend-mode:multiply}
+.portrait .ini{font:700 64px/1 "Instrument Sans",Inter,Arial,sans-serif;color:#fff;opacity:.9;margin-bottom:24%;text-shadow:0 2px 12px rgba(0,0,0,.25)}
+.lead .body{padding:40px 44px 40px 0}
+.lead h2{font-size:36px;margin-bottom:4px}.lead .role{color:var(--blue);font-weight:600;margin-bottom:16px}
+.lead p{margin:0 0 12px;color:#2a2f35}
+.facts{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 24px}.facts span{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:6px 12px;background:#fff}
+.actions{display:flex;gap:12px;align-items:center}.lnk{font-weight:600;color:var(--ink);text-decoration:none}
+.team h2{font-size:40px;margin-bottom:8px}.team .sub{color:var(--mute);max-width:60ch;margin:0 0 40px}
+.group{margin-bottom:44px}.group h3{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);font-family:Inter,"Segoe UI",Arial,sans-serif;margin-bottom:18px;display:flex;gap:14px;align-items:center}
+.group h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.m{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.m .portrait .ini{font-size:40px}
+.m .t{padding:16px 18px 18px}.m b{display:block;font-size:18px;font-family:"Instrument Sans",Inter,Arial,sans-serif}.m .r{color:var(--blue);font-size:14px;font-weight:600;margin:2px 0 8px}
+.m p{margin:0;font-size:14.5px;color:#3a4046}.m .li{display:inline-block;margin-top:12px;font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--blue)}
+.how{background:var(--ink);color:#fff}.how h2{font-size:36px;margin-bottom:36px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}.steps div{border-top:2px solid #2b3139;padding-top:18px}
+.steps .n{font:600 13px Inter,Arial,sans-serif;color:#6CC04A;margin-bottom:10px}.steps b{display:block;font-size:19px;font-family:"Instrument Sans",Inter,Arial,sans-serif;margin-bottom:6px}.steps p{margin:0;color:#C9CDD2;font-size:15px}
+.cta{background:var(--blue);color:#fff;text-align:center;padding:72px 0}.cta h2{font-size:38px;margin-bottom:12px}.cta p{margin:0 auto 26px;max-width:48ch;color:#E6F0F8}
+.cta .btn{background:#fff;color:var(--ink)}
+.note{background:#FFF7E6;border:1px solid #F2D399;color:#5a4300;font-size:13px;padding:10px 14px;border-radius:8px;margin:0 auto 0;max-width:1180px}
+@media (max-width:760px){
+ .hero .wrap{grid-template-columns:1fr;padding-top:110px;padding-bottom:44px}.hero h1{font-size:38px}.hero .photo-tag{display:none}
+ header.nav .links{display:none}
+ .lead .card{grid-template-columns:1fr}.lead .body{padding:24px 22px 28px}.lead h2{font-size:30px}
+ .grid{grid-template-columns:1fr 1fr;gap:14px}.m .t{padding:12px}.m b{font-size:16px}.m p{font-size:13px}
+ .steps{grid-template-columns:1fr}.team h2{font-size:32px}section{padding:56px 0}.wrap{padding:0 20px}
+}
+</style></head><body>
+<header class="nav"><div class="links"><span>Services ▾</span><span>Solutions ▾</span><span>Industries ▾</span><span>Work ▾</span><span>About ▾</span></div><div class="logo">SOUTHWIND<br>MARKETING</div><div class="touch">Get in touch →</div></header>
+
+<section class="hero"><div class="wrap">
+ <div><div class="eyebrow">Our team</div><h1>The people who answer when a council, a board or an owner calls</h1>
+ <p>Ten people. One roof in Yukon, Oklahoma. Strategy, web, data, creative and media for businesses and the communities around them, in all 50 states.</p></div>
+ <div class="photo-tag">Hero: real on-site team photo (team-on-site.webp already in the media library), dark overlay. Replaces the abstract ribbon.</div>
+</div></section>
+
+<section class="lead"><div class="wrap">
+ <div class="eyebrow dark">Leadership</div>
+ <div class="card">
+  <div class="portrait"><span class="ini">DD</span></div>
+  <div class="body">
+   <h2>Damien Denmark</h2><div class="role">Owner &amp; Principal · Founded Southwind Marketing, 2025</div>
+   <p>Damien sets the direction of every engagement and stays on the account. He grew up in Texarkana, Texas, spent 2020–2023 in Liberal, Kansas supporting small-business owners and nonprofit boards, and now serves as Economic Development Director for the City of Yukon, so he sits on the same side of the table as the chambers, cities and EDOs Southwind works for.</p>
+   <div class="facts"><span>Texas A&amp;M–Texarkana</span><span>Leadership Kansas, Class of 2024</span><span>IDA Placemaking</span><span>Meta &amp; Hootsuite certified</span><span>KC Under 30 Entrepreneur</span></div>
+   <div class="actions"><a class="btn btn-p" href="#">Book a call with Damien</a><a class="lnk" href="#">LinkedIn →</a></div>
+  </div>
+ </div>
+</div></section>
+
+<section class="team"><div class="wrap">
+ <div class="eyebrow dark">Meet the team</div>
+ <h2>Who does what on your account</h2>
+ <p class="sub">Every client gets one account manager and the specialists the work needs. Here is who they are and what each of them owns.</p>
+
+ <div class="group"><h3>Strategy &amp; accounts</h3><div class="grid">
+  <div class="m"><div class="portrait"><span class="ini">JA</span></div><div class="t"><b>Jeni Arellano</b><div class="r">Account Manager</div><p>Your single point of contact. Runs the weekly check-in, the monthly report and the deadline list.</p><a class="li" href="#">LinkedIn</a></div></div>
+  <div class="m"><div class="portrait"><span class="ini">JW</span></div><div class="t"><b>Jonathon Westbrook</b><div class="r">Director of Strategic Partnerships</div><p>Scopes new engagements, RFP responses and the partner network behind Connect, Guardian and Cloud.</p><a class="li" href="#">LinkedIn</a></div></div>
+  <div class="m"><div class="portrait"><span class="ini">AS</span></div><div class="t"><b>Andrew Sloss</b><div class="r">Economic Development &amp; Site Selection Advisor</div><p>Translates what site selectors look for into the pages, data rooms and incentive content EDOs publish.</p><a class="li" href="#">LinkedIn</a></div></div>
+ </div></div>
+
+ <div class="group"><h3>Data &amp; web</h3><div class="grid">
+  <div class="m"><div class="portrait"><span class="ini">JS</span></div><div class="t"><b>Jarrod Shelton</b><div class="r">Data &amp; Intelligence Analyst</div><p>Builds the Power BI dashboards and the ESRI, Placer.ai and CoStar trade-area work behind every plan.</p><a class="li" href="#">LinkedIn</a></div></div>
+  <div class="m"><div class="portrait"><span class="ini">MT</span></div><div class="t"><b>Mubtasim Tahmid</b><div class="r">Lead Web Developer</div><p>Builds and maintains the WordPress sites, Core Web Vitals, accessibility and the Guardian hosting stack.</p><a class="li" href="#">LinkedIn</a></div></div>
+  <div class="m"><div class="portrait"><span class="ini">FA</span></div><div class="t"><b>Fahim Abrar</b><div class="r">Project Manager, Branding &amp; Design</div><p>Runs brand systems and design production from brief to final files, on the fixed-scope timeline.</p><a class="li" href="#">LinkedIn</a></div></div>
+ </div></div>
+
+ <div class="group"><h3>Creative &amp; media</h3><div class="grid">
+  <div class="m"><div class="portrait"><span class="ini">MP</span></div><div class="t"><b>Marcos Popa</b><div class="r">Visual Content Manager, Western Kansas</div><p>Shoots and schedules the real photos and video that keep client social pages looking open for business.</p><a class="li" href="#">LinkedIn</a></div></div>
+  <div class="m"><div class="portrait"><span class="ini">MH</span></div><div class="t"><b>Matthew Hicks</b><div class="r">Creative Partner, Visual Media &amp; Storytelling</div><p>Brand films, campaign creative and the stories that go in front of councils and Friday-night crowds.</p><a class="li" href="#">LinkedIn</a></div></div>
+  <div class="m"><div class="portrait"><span class="ini">CE</span></div><div class="t"><b>Christopher Erazo</b><div class="r">Photographer &amp; Videographer</div><p>On-location photography and video for websites, ads and events, from air shows to ranches.</p><a class="li" href="#">LinkedIn</a></div></div>
+ </div></div>
+</div></section>
+
+<section class="how"><div class="wrap">
+ <div class="eyebrow">How you'll work with us</div>
+ <h2>One account manager. The specialists your plan needs. A report you can read.</h2>
+ <div class="steps">
+  <div><div class="n">01</div><b>Consultation</b><p>Damien or Jonathon listens first: goals, audience, budget realities, who you report to.</p></div>
+  <div><div class="n">02</div><b>Plan</b><p>A fixed-scope plan tied to KPIs your owner, board or council recognises.</p></div>
+  <div><div class="n">03</div><b>Build &amp; run</b><p>Jeni coordinates; data, web and creative specialists ship the work, branded as you.</p></div>
+  <div><div class="n">04</div><b>Report</b><p>Monthly numbers on leads, calls and revenue, plus a quarterly strategy review.</p></div>
+ </div>
+</div></section>
+
+<section class="cta"><div class="wrap"><h2>Ready to meet the team on a call?</h2><p>Join 110+ clients in 50 states. We will tell you what we would do first, what it costs, and what we would leave alone.</p><a class="btn" href="#">Get a Free Consultation</a></div></section>
+<p class="note" style="margin:20px auto">Concept note: portraits shown as placeholders. Production uses the existing staff photos re-cropped to 4:5 at a common shoulder line, greyscale with a brand-blue duotone (CSS <code>filter: grayscale(1)</code> + blue multiply overlay, as styled here), so no reshoot is needed. Owner bio facts are taken verbatim from /ai-instructions/.</p>
+</body></html>
