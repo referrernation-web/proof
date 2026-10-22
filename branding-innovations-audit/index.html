@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEO Audit – Branding Innovations</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{--ink:#1d1d1f;--muted:#5f6368;--brand:#8a1c2b;--line:#e6e1e2;--bg:#fafafa;--card:#fff;--good:#137333;--warn:#b06000;--bad:#c5221f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Segoe UI",system-ui,-apple-system,Arial,sans-serif}
+main{max-width:960px;margin:0 auto;padding:40px 16px 64px}
+h1{margin:0;font-size:30px;color:var(--brand)}
+.meta{color:var(--muted);margin:6px 0 0;font-size:14px}
+section{margin-top:32px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px}
+h2{margin:0 0 12px;font-size:22px}
+h3{margin:20px 0 6px;font-size:17px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px;padding-left:22px}
+li{margin-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0 12px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:13px;color:var(--muted);font-weight:600}
+.good{color:var(--good);font-weight:600}.warn{color:var(--warn);font-weight:600}.bad{color:var(--bad);font-weight:600}
+.callout{border-left:4px solid var(--brand);background:#fbf5f6;padding:14px 16px;border-radius:6px;margin:12px 0}
+.tag{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;background:#f1e4e6;color:var(--brand);margin-right:6px}
+code{background:#f3f3f3;padding:1px 5px;border-radius:4px;font-size:13px}
+.scroll{overflow-x:auto}
+footer{margin-top:32px;font-size:13px;color:var(--muted)}
+@media print{body{background:#fff}section{break-inside:avoid;border:none;padding:0}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>SEO &amp; AI Search Audit: Branding Innovations</h1>
+  <p class="meta">brandinginnovations.co.uk · brandinginnovations.ae · benchmark: liquidfusiongroup.com · Audited Oct 22, 2026 by Mark Edcel Lopez</p>
+</header>
+
+<section>
+  <h2>Summary</h2>
+  <div class="callout"><strong>The core problem is positioning, not speed.</strong> Google files the site under "branding agency" because almost every signal says so: the domain name, the homepage title, the H1, most landing pages, and the copy. Recipe development, which is what you actually sell, has a 472-word page with no supporting content. Liquid Fusion's site is slower than yours, yet it wins the leads because every signal on it says "recipe development and manufacturing."</div>
+  <ol>
+    <li><strong>Re-point the site at recipe development</strong> (homepage title, H1, nav order, and a full recipe development hub). This is the fastest change that affects which leads you get.</li>
+    <li><strong>Fix the UAE site's www address</strong>, which doesn't load in the browser, and add hreflang between the two domains so they stop competing.</li>
+    <li><strong>Fix layout shift on the UK homepage</strong> (CLS 0.238, which fails Core Web Vitals) and clean up the sitemap.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>1. How Google sees you vs. Liquid Fusion</h2>
+  <div class="scroll"><table>
+    <tr><th>Signal</th><th>brandinginnovations.co.uk</th><th>liquidfusiongroup.com</th></tr>
+    <tr><td>Homepage title</td><td>Branding Innovations | UK <strong>Beverage Branding Agency</strong></td><td>Liquid Fusion – <strong>Beverage Recipe Development</strong> &amp; soft drink Manufacturer</td></tr>
+    <tr><td>H1</td><td>The UK's No.1 expert in drink development, <strong>branding</strong>, marketing &amp; product launch</td><td>Multiple award winning <strong>development laboratory</strong> &amp; contract bottler</td></tr>
+    <tr><td>Word count on homepage: "brand" vs "recipe"</td><td class="bad">"brand" 27× · "recipe" 5×</td><td class="good">"recipe" 17× · "brand" 3×</td></tr>
+    <tr><td>First nav items</td><td>Services → Recipe Development, Brand Development, Production, Launch</td><td>Liquid Development, Factory Selection, Ingredient Management, Manufacturing</td></tr>
+    <tr><td>Homepage length</td><td>~800 words</td><td>~2,000 words</td></tr>
+    <tr><td>Recipe development page</td><td class="bad">472 words; no H2 sections about the service</td><td>Service is the whole site</td></tr>
+    <tr><td>Supporting landing pages</td><td class="warn">Mostly branding and design: <code>/brand-development-agency-uk/</code>, <code>/drink-design-company/</code>, <code>/drink-design-company-uk/</code>, <code>/branding-bubble-tea-drinks/</code>, <code>/brand-development-company-in-dubai/</code></td><td>Development, ingredients, manufacturing</td></tr>
+  </table></div>
+  <p>Your domain name already contains "branding", so the rest of the site has to work twice as hard to say "recipe development." Right now it does the opposite.</p>
+</section>
+
+<section>
+  <h2>2. Page speed (Google PageSpeed Insights, mobile, Oct 22, 2026)</h2>
+  <div class="scroll"><table>
+    <tr><th>Site</th><th>Performance</th><th>LCP</th><th>CLS</th><th>Speed Index</th><th>SEO score</th></tr>
+    <tr><td>brandinginnovations.co.uk</td><td class="warn">75</td><td>2.9 s</td><td class="bad">0.238 (poor)</td><td>5.1 s</td><td>100</td></tr>
+    <tr><td>brandinginnovations.ae</td><td class="good">100</td><td>1.4 s</td><td class="good">0.017</td><td>2.5 s</td><td>92</td></tr>
+    <tr><td>liquidfusiongroup.com</td><td class="bad">47</td><td class="bad">9.7 s</td><td class="good">0.005</td><td>6.7 s</td><td>92</td></tr>
+  </table></div>
+  <p>Speed is not why Liquid Fusion is winning, because their site is the slowest of the three. The one speed item worth fixing on the UK site is <strong>layout shift (CLS 0.238)</strong>, which fails Google's Core Web Vitals threshold of 0.1. It usually comes from images, sliders or fonts loading without fixed dimensions in Elementor.</p>
+</section>
+
+<section>
+  <h2>3. UK site technical findings (brandinginnovations.co.uk)</h2>
+  <ul>
+    <li><span class="tag">Indexing</span>The sitemap includes pages that shouldn't be indexed: <code>/thank-you/</code>, <code>/thank-you-booking-request/</code>, <code>/thank-you-for-your-subscription/</code>, <code>/thank-you-sales-marketing-guide/</code>, <code>/thank-you-development-branding-guide/</code>. Noindex them.</li>
+    <li><span class="tag">Duplicates</span><code>/home/</code> and <code>/main-page/</code> appear alongside <code>/</code>. Likely leftover home pages; redirect or noindex them so only one homepage exists.</li>
+    <li><span class="tag">Cannibalization</span>Several pages target almost the same idea (<code>/drink-design-company/</code> vs <code>/drink-design-company-uk/</code>; <code>/services/brand-development/</code> vs <code>/brand-development-agency-uk/</code> vs <code>/brand-development-build-a-food-or-drink-brand/</code>). Consolidate each group into one page.</li>
+    <li><span class="tag">Schema</span>Yoast defaults plus a basic LocalBusiness. Add Organization and Service schema for recipe development, NPD and formulation, and FAQPage on service pages.</li>
+    <li><span class="tag">Content</span>223 blog posts, mostly industry news and branding topics. Few of them link to the recipe development page, so it gets little internal authority.</li>
+    <li><span class="tag">www</span>The canonical is the non-www version (<code>brandinginnovations.co.uk</code>). Make sure every internal link, GBP and directory listing uses that same version.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>4. UAE site findings (brandinginnovations.ae)</h2>
+  <ul>
+    <li><span class="tag bad">Urgent</span><strong><code>https://www.brandinginnovations.ae</code> did not load in my browser</strong> ("This site can't be reached"), while <code>https://brandinginnovations.ae</code> loaded fine. Both point to the same server, so this is most likely a missing SSL certificate or redirect for the www version. Anyone who types or clicks the www address may land on an error page. Add the www host to the certificate and 301-redirect it to the non-www version.</li>
+    <li><span class="tag">Positioning</span>The title is "<strong>Drink Branding Development</strong> with Brand Innovations". Same issue as the UK site, and the name is written as "Brand Innovations" instead of "Branding Innovations".</li>
+    <li><span class="tag">International</span>No hreflang between the .co.uk and .ae sites, and the two share very similar copy. Add <code>en-GB</code> and <code>en-AE</code> hreflang so Google shows the right site in each country and doesn't treat them as duplicates.</li>
+    <li><span class="tag">Local trust</span>The UAE site lists a UAE address and phone number, but its email is <code>info@brandinginnovations.co.uk</code>. Use a .ae email and create a UAE Google Business Profile with the same address.</li>
+    <li><span class="tag">Copy</span>Typos on the homepage ("Worldwild", "ACCES S") and inconsistent claims (200 brands in 20 years vs. 180+ brands in 16 years). Inconsistent facts weaken trust with buyers and with AI tools.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>5. Action plan: fastest route to relevant leads</h2>
+  <h3>Week 1–2: re-position (biggest impact on lead quality)</h3>
+  <ul>
+    <li>Homepage title: <em>"Recipe Development &amp; Drink Formulation Experts | Branding Innovations UK"</em>. H1: <em>"Drink Recipe Development, Formulation &amp; Launch"</em>.</li>
+    <li>Rewrite the first screen of the homepage around recipe development, NPD and formulation, with branding as a supporting service.</li>
+    <li>Make "Recipe Development" the first nav item, and link to it from the homepage hero.</li>
+    <li>Fix the UAE www address, the CLS issue, and noindex the thank-you and duplicate pages.</li>
+  </ul>
+  <h3>Week 2–6: build the recipe development hub</h3>
+  <ul>
+    <li>Expand <code>/services/recipe-development/</code> to 1,500+ words: process, lab team (Claire, Dr Lilla), timelines, costs, examples, FAQs.</li>
+    <li>Add sub-pages for real search demand: soft drink recipe development, functional and wellness drinks, alcohol-free spirits, RTD cocktails, sports and hydration drinks, bubble tea, and food NPD.</li>
+    <li>Case-study pages for the brands you developed (VitClear, Bublz, PrioriTea and others), each saying what you formulated and how fast it reached market.</li>
+    <li>Link the most relevant of the 223 blog posts to these pages.</li>
+  </ul>
+  <h3>Week 4–12: AI search and authority</h3>
+  <ul>
+    <li>Organization and Service schema, FAQPage schema, and a hand-written <code>llms.txt</code> that describes you as a recipe development and formulation company.</li>
+    <li>Use the same facts everywhere (years, brands launched, services) across both sites, Google Business Profiles, LinkedIn and industry directories. This is what ChatGPT, Gemini and Perplexity rely on when deciding whom to recommend.</li>
+    <li>Track a fixed set of questions ("drink recipe development UK", "beverage formulation company Dubai") in Google and AI tools every month.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>6. What I'd measure monthly</h2>
+  <ul>
+    <li>Leads from organic search, split into relevant (recipe development) and irrelevant (branding-only)</li>
+    <li>Rankings and clicks for recipe development and formulation keywords, in the UK and UAE separately</li>
+    <li>Mentions and citations in ChatGPT, Gemini, Perplexity and Google AI Overviews</li>
+    <li>Core Web Vitals and indexing health</li>
+  </ul>
+  <p>Note: this audit is based on public pages, sitemaps and PageSpeed Insights. Access to Search Console and GA4 would show the exact queries Google currently matches you to and which pages bring the irrelevant leads.</p>
+</section>
+
+<footer>
+  <p>Prepared by Mark Edcel Lopez · markedcel06@gmail.com · <a href="https://referrernation-web.github.io/portfolio/">Portfolio</a> · <a href="https://referrernation-web.github.io/proof/results/">Results</a></p>
+</footer>
+</main>
+</body>
+</html>
