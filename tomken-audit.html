@@ -1,0 +1,133 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Tomken Dental Audit</title>
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--ink:#1c2530;--muted:#5c6672;--line:#ddd9d0;--accent:#0e7c5b;--head:#eef3f0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141a21;--card:#1c242e;--ink:#e8e6e0;--muted:#9aa5b0;--line:#2a3440;--accent:#3fbf8f;--head:#1a2e27}}
+:root[data-theme="dark"]{--bg:#141a21;--card:#1c242e;--ink:#e8e6e0;--muted:#9aa5b0;--line:#2a3440;--accent:#3fbf8f;--head:#1a2e27}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,Segoe UI,Arial,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:32px 16px 64px}h1{font-size:2rem;margin:0 0 8px}h2{margin-top:2.4em;padding-top:1em;border-top:1px solid var(--line);color:var(--accent)}
+a{color:var(--accent)}code{background:var(--head);padding:1px 5px;border-radius:4px;font-size:.88em;word-break:break-word}
+.tw{overflow-x:auto;margin:16px 0;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:var(--head)}tr:last-child td{border-bottom:0}
+hr{border:0}blockquote{color:var(--muted)}
+</style></head><body><main id="c">Loading…</main>
+<script id="md" type="text/markdown"># Tomken Dental: SEO Audit
+
+**Site:** tomkendental.com · **Audited:** 22 October 2026 · **By:** Mark Edcel Lopez
+
+**Method:** I crawled all 78 URLs in the Yoast sitemaps (13 pages, 21 services, 44 posts) and recorded the status code, title, meta description, H1s, canonical, JSON-LD and word count for each. I also checked redirects and robots.txt by hand, reviewed the dental implants page section by section, and compared it with a competitor found through search.
+**Not available without access:** rankings, impressions and clicks (Search Console), backlinks (Ahrefs/Semrush), and field Core Web Vitals. The PageSpeed API was rate-limited during the audit. Where a finding needs that data, I say so.
+
+---
+
+## 1. Three significant technical issues
+
+| # | Issue | Evidence | Impact | Fix |
+|---|---|---|---|---|
+| 1 | **A page carries another client's title tag** | `/how-much-does-a-dental-bridge-cost-in-ontario/` has the title "Hair & Scalp Treatments in Falls Church, VA \| Millennium Medical". Its H1 is correct. | Google shows an irrelevant title in search, so the page can't rank for "dental bridge cost". It also looks unprofessional, and it suggests a template or bulk-edit process that could break other pages. | Rewrite the title (e.g. "Dental Bridge Cost in Ontario: 2026 Price Guide \| Tomken Dental") and request reindexing. Then check Yoast titles sitewide for anything copied from another site, and find out how it happened (copied page, AI bulk tool, shared template). |
+| 2 | **robots.txt returns 404, and HTTP isn't redirected to HTTPS** | `/robots.txt` returns 404. `http://tomkendental.com/` returns 200 instead of a 301 to HTTPS (the www versions redirect correctly). | With no robots.txt, there's no sitemap reference for crawlers (Google, Bing, and AI crawlers like GPTBot and PerplexityBot), and no control over crawl waste. HTTP and HTTPS serve duplicate copies of every page. The canonical tag points to HTTPS, but a 301 is the reliable signal. The HSTS header already present only works after a visitor's first HTTPS visit. | Restore robots.txt, which WordPress normally generates. A server rule on Hostinger is likely blocking it. Include `Sitemap: https://tomkendental.com/sitemap_index.xml` and allow the main AI crawlers. Add a sitewide HTTP-to-HTTPS 301 in .htaccess or the Hostinger panel. **Confirm in GSC:** whether HTTP URLs are indexed, and the robots.txt report. |
+| 3 | **Every page outputs the same schema, and H1s and titles have template errors** | All 78 URLs output one identical JSON-LD graph (Dentist/MedicalClinic, every MedicalProcedure, every Person), including blog posts and the thank-you page. No page has FAQPage, Article/BlogPosting or BreadcrumbList, even though service pages have visible FAQ sections. 9 pages have 2 H1s (e.g. "Home \| Your Family Dentist in Mississauga", "Financing Options \| Financing Options"). 11 titles repeat a location (e.g. "…Mississauga, Ontario, Ontario", "…Tomken, Ontario"). | Google can't tell which procedure a page is about, and posts don't show as articles with an author, which hurts E-E-A-T on YMYL health content. Missing FAQPage and Breadcrumb schema means no rich results and fewer easy answers for AI Overviews and ChatGPT to quote. The doubled H1s and titles look like a bug in the theme or template. | Output schema per template. Keep the Dentist graph only on the home, contact and about pages, and reference it by `@id` elsewhere. Service pages: one MedicalProcedure plus FAQPage plus BreadcrumbList. Posts: BlogPosting with the reviewing dentist as author. Fix the theme so each page has one H1, and remove the duplicate location suffix in the Yoast title template. |
+
+**Also noted:**
+- Service pages are around 373 KB of HTML each, and the emergency page is 628 KB. Most of that is probably inline CSS/JS from the builder. Check mobile LCP and INP in PageSpeed and the GSC Core Web Vitals report.
+- The `/category/flouride-sealants/` slug is misspelled.
+- `/emergency-dentistry-mississauga/` is listed in both the page and service sitemaps.
+
+---
+
+## 2. Service page: Dental Implants (`/dental-implants-mississauga/`)
+
+**Why this page:** Implants are the highest-value procedure the practice offers, and the topic is split across six URLs (see section 5).
+
+**Search intent for "dental implants Mississauga":** commercial and local. People want to know whether they're a candidate, what it costs, how long it takes, and whether this clinic is trustworthy. The top results mix clinic pages with cost guides, so **cost is part of the intent**.
+
+**What's good now:** clear title and H1 (service + city), about 1,900 words, logical sections (candidacy, step-by-step, recovery, FAQ), and alt text on every image.
+
+**Changes:**
+
+| Area | Now | Change | Why |
+|---|---|---|---|
+| Cost | The FAQ asks "How much do dental implants cost?" but the page shows no number | Add a cost section with a realistic range (single implant, implant bridge, All-on-4), what affects the price, insurance and CDCP, and financing. Link to the full cost guide. | Cost is the main question searchers have. The two cost posts currently compete with this page instead of feeding it. |
+| All-on-4 | Only "Full-Arch Restoration" as an H3 | Add an All-on-4 / full-arch section and link to `/all-on-4-implants-vs-dentures-mississauga/` | A high-value sub-intent the site already has content for |
+| Internal links | **Zero links** to the six implant posts | Link to the cost guide, recovery timeline and immediate-placement post from the relevant sections. Have each post link back with the anchor "dental implants in Mississauga". | Sends authority to the money page and makes the topic cluster clear |
+| Trust (E-E-A-T) | "Extensive Implant Experience" with no names | Name the dentist who places the implants, with credentials and number of cases. Add before-and-after photos, implant reviews and a "reviewed by Dr. ___" line. | YMYL health content, and the competitor has a page for each dentist |
+| Imaging | CBCT mentioned in the process | Link to `/cbct-3d-imaging/` as the planning step | Strengthens a differentiator and links related pages |
+| Schema | Generic sitewide graph | MedicalProcedure (dental implant) + FAQPage for the existing 5 FAQs + BreadcrumbList | Rich results, and easier for AI answers to quote |
+| CTA | Generic | "Book an implant consultation (includes 3D scan)" above the fold and after the cost section | Matches the intent to compare and then book |
+
+**Confirm in GSC:** which queries this page and the cost posts get impressions for, average position, and CTR, to see which URL Google currently prefers for "implant cost" queries.
+
+---
+
+## 3. Five target keywords
+
+Search volumes and difficulty still need to be confirmed in Semrush or Ahrefs for Mississauga/Canada. I chose these from the site's service mix, search intent and revenue value.
+
+| Rank | Keyword | Target URL | Why |
+|---|---|---|---|
+| 1 | **dentist mississauga** | Home | The highest-volume local term, and it drives the map pack. The practice's core identity is family dentist. |
+| 2 | **dental implants mississauga** | /dental-implants-mississauga/ | The highest revenue per patient, and the site already has six supporting pieces of content to consolidate behind it |
+| 3 | **emergency dentist mississauga** | /emergency-dentistry-mississauga/ | Urgent intent with high conversion, and they open Saturdays. The site already has a strong 2,200-word page. |
+| 4 | **invisalign mississauga** | /invisalign-mississauga/ | High value, and Dr. Al-Obaidi has an Invisalign provider profile, which is an authority signal to use |
+| 5 | **cdcp dentist mississauga** | /cdcp-eligibility-mississauga/ (or a new CDCP page) | New demand from the Canadian Dental Care Plan. Low competition and patients are actively looking. The competitor already has two CDCP pages. |
+
+Secondary local modifiers: "dentist near Rathburn / Dixie / Square One", "sleep dentistry mississauga", "same day crowns mississauga".
+
+---
+
+## 4. Competitor: Family Dental Care (familydentalcare.ca)
+
+It appeared in both my local searches ("dental implants Mississauga" and a Rathburn Road search). It's a general practice nearby on Burnhamthorpe Rd W.
+
+**Where it beats Tomken organically:**
+- **E-E-A-T and team pages:** 9 individual "Meet Dr. ___" pages plus success stories and an office tour. Tomken has one About page. Its schema names three people but has no profile pages for them.
+- **Domain and practice age:** practising since 1989. An older domain usually means more links and brand searches. **Confirm in Ahrefs:** referring domains and DR for both sites.
+- **CDCP coverage:** two dedicated pages ("Canadian Dental Care Plan" and "Help obtaining CDCP coverage"). Tomken has one blog post.
+- **Specialist depth:** separate pages for periodontal surgery, grafting and flap procedures, which support implant authority.
+- **Breadcrumb schema** sitewide (Tomken has none).
+
+**Where Tomken is ahead:** more and longer service pages (21 vs. about 15), a dedicated emergency page, and more blog content (44 vs. 20 posts). The gap is in trust and authority, not content volume.
+
+---
+
+## 5. Pages competing for the same keywords
+
+The site has **two cost posts for the same procedure** (a "Mississauga" one and an "Ontario" one), plus **long blog "guides" that compete with their own service pages**.
+
+| Topic | Competing URLs | Recommendation |
+|---|---|---|
+| Implant cost | /dental-implants-cost-mississauga/ (892 words) · /how-much-do-dental-implants-cost-in-ontario/ (725) | **Consolidate** into the Mississauga URL and **301** the Ontario one. Searchers in Mississauga see both. |
+| Whitening cost | /teeth-whitening-cost-mississauga/ · /how-much-does-teeth-whitening-cost-in-ontario-a-comprehensive-guide/ | Consolidate + 301 |
+| Root canal cost | /root-canal-cost-mississauga/ · /how-much-does-a-root-canal-cost-in-ontario/ | Consolidate + 301 |
+| Bridge cost | /dental-bridge-cost-mississauga/ · /how-much-does-a-dental-bridge-cost-in-ontario/ (the wrong-title page) | Consolidate + 301 (fixes issue 1 at the same time) |
+| Service vs. general guide | /dental-implants-mississauga/ vs. /dental-implants-types-procedure-benefits-recovery/ (2,844 words). The same pattern exists for cleaning, emergency, cosmetic, root canal, extractions, whitening, dentures, oral cancer, fluoride and crowns. | **Check GSC first.** If the guide ranks for the service + city term, merge its best sections into the service page and 301 it. If it ranks for different, informational queries, keep it, make it clearly informational, and link it to the service page. |
+| Topics that can stay separate | /cbct-3d-imaging/ vs. /cbct-3d-imaging-explained-mississauga/ · /sleep-apnea-mississauga/ vs. /snoring-a-sign-of-sleep-apnea/ · /sleep-dentistry-mississauga/ vs. the two sedation posts | **Optimise separately.** The intents differ (book vs. learn). Add links from each post to its service page. |
+| Category archives | /category/dental-implants/, /category/teeth-whitening/, etc. | Set to **noindex** in Yoast. They duplicate the service topics with thin lists of posts. |
+| Crowns | /same-day-crowns-mississauga/ has the H1 "Crowns & Bridges in Mississauga" | Align the title and H1 to "Crowns, Bridges & Same-Day Crowns in Mississauga" so it targets both terms |
+
+**Confirm in GSC:** use Performance → filter by query → Pages tab to see which URLs share impressions for each cost and service term before setting the redirects.
+
+---
+
+## 6. Five recommendations, ranked
+
+| Rank | Recommendation | Impact | Urgency | Effort |
+|---|---|---|---|---|
+| 1 | Fix the wrong title on the bridge cost page and check every title sitewide for errors copied from other sites | Medium | **High** (client-facing error) | Low (15 min) |
+| 2 | Restore robots.txt with the sitemap line, and add the HTTP-to-HTTPS 301 | High | High | Low (30 min) |
+| 3 | Consolidate the 4 duplicate cost-post pairs with 301s, and noindex category archives | High | Medium | Low–Medium (2–3 h) |
+| 4 | Rebuild the implants page (cost, All-on-4, internal links, named dentist, schema), then roll the same template out to Invisalign, emergency and crowns | High | Medium | Medium (4–6 h per page) |
+| 5 | Per-template schema (FAQPage, BlogPosting, Breadcrumb), fix the H1/title template, and add a page per dentist and a CDCP landing page | Medium–High | Medium | Medium (dev + content, 1–2 weeks) |
+
+---
+
+## What I'd confirm with Search Console access
+1. Query and page data for the implant, whitening, root canal and bridge clusters, to pick the winning URL before any 301.
+2. Indexing report: whether HTTP URLs, category archives or tag pages are indexed.
+3. Which title Google is showing for the bridge cost page, and its impressions.
+4. Core Web Vitals (mobile) for the service template, given the 373–628 KB HTML pages.
+5. robots.txt report and sitemap status.
+6. Branded vs. non-branded clicks, to set a baseline before the changes.
+</script>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script>var c=document.getElementById('c');c.innerHTML=marked.parse(document.getElementById('md').textContent);c.querySelectorAll('table').forEach(function(t){var w=document.createElement('div');w.className='tw';t.parentNode.insertBefore(w,t);w.appendChild(t);});</script>
+</body></html>
